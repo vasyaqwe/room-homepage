@@ -280,7 +280,7 @@ p {
 
     .primary-nav li {
         color: #fff;
-        font-size: 1.3rem;
+        font-size: min(2vw, 1.5rem);
     }
 
     .primary-nav li::after {
@@ -412,21 +412,21 @@ p {
 
 @media (min-width: 1200px) {
     h1 {
-        font-size: 3rem;
+        font-size: min(3vw, 3rem);
     }
 
     h2 {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
         letter-spacing: 0.6rem;
     }
 
     p {
-        font-size: 1.05rem;
+        font-size: 1.15rem;
     }
 
 
     .cta {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
     }
 
     .hero-slide {
@@ -436,7 +436,7 @@ p {
     }
 
     .article {
-        padding: 2em 2.5em;
+        padding: 2em 2.25em;
         align-self: center;
     }
 
