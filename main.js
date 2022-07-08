@@ -22,7 +22,6 @@ navToggle.addEventListener('click', () => {
 })
 
 let activeSlide = 0;
-console.log(activeSlide)
 
 prevBtn.forEach(btn => btn.addEventListener('click', () => {
   activeSlide--;
@@ -30,8 +29,8 @@ prevBtn.forEach(btn => btn.addEventListener('click', () => {
     activeSlide = slides.length - 1;
   }
   setActiveSlide();
-  console.log(activeSlide)
 }))
+
 
 nextBtn.forEach(btn => btn.addEventListener('click', () => {
   activeSlide++;
@@ -39,12 +38,47 @@ nextBtn.forEach(btn => btn.addEventListener('click', () => {
     activeSlide = 0;
   }
   setActiveSlide();
-  console.log(activeSlide)
 }))
+prevBtn.forEach(btn => btn.addEventListener('mouseover', () => {
+  btn.style.backgroundColor = 'var(--clr-grey)';
+}))
+prevBtn.forEach(btn => btn.addEventListener('mouseleave', () => {
+  btn.style.backgroundColor = '#000';
+}))
+nextBtn.forEach(btn => btn.addEventListener('mouseover', () => {
+  btn.style.backgroundColor = 'var(--clr-grey)';
+}))
+nextBtn.forEach(btn => btn.addEventListener('mouseleave', () => {
+  btn.style.backgroundColor = '#000';
+}))
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowLeft') {
+    activeSlide--;
+    if (activeSlide < 0) {
+      activeSlide = slides.length - 1;
+    }
+    setActiveSlide();
+    prevBtn.forEach(btn => btn.style.backgroundColor = 'var(--clr-grey)');
+    setTimeout(() => {
+      prevBtn.forEach(btn => btn.style.backgroundColor = '#000');
+    }, 500);
 
+  } else if (e.key === 'ArrowRight') {
+    activeSlide++;
+    if (activeSlide > slides.length - 1) {
+      activeSlide = 0;
+    }
+    setActiveSlide();
+    nextBtn.forEach(btn => btn.style.backgroundColor = 'var(--clr-grey)');
+    setTimeout(() => {
+      nextBtn.forEach(btn => btn.style.backgroundColor = '#000');
+    }, 500);
+  }
+})
 function setActiveSlide() {
   slides.forEach(slide => slide.classList.remove('active'));
 
   slides[activeSlide].classList.add('active');
-
 }
+
+
